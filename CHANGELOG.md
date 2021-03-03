@@ -1,3 +1,9 @@
+## 0.18.0 (2021-03-03)
+
+### Breaking changes
+
+Extra CSS classes for tooltips must now be specified with the `class` option. The `style` option no longer exists.
+
 ## 0.17.2 (2021-01-14)
 
 ### Bug fixes
