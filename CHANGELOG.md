@@ -1,3 +1,9 @@
+## 0.18.1 (2021-03-04)
+
+### New features
+
+The source callback to `hoverTooltip` may now return a promise.
+
 ## 0.18.0 (2021-03-03)
 
 ### Breaking changes
