@@ -1,3 +1,9 @@
+## 0.18.2 (2021-03-14)
+
+### Bug fixes
+
+Fix an issue where tooltips created in an out-of-view editor show up in the wrong place.
+
 ## 0.18.1 (2021-03-04)
 
 ### New features
