@@ -1,3 +1,9 @@
+## 0.18.3 (2021-03-14)
+
+### Bug fixes
+
+Fix a crash in tooltip creation.
+
 ## 0.18.2 (2021-03-14)
 
 ### Bug fixes
