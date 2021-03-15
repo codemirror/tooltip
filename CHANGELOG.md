@@ -1,3 +1,19 @@
+## 0.18.4 (2021-03-15)
+
+### Breaking changes
+
+It is no longer necessary to use the `tooltips` extension when using this package—just providing values through `showTooltip` will implicitly enable the necessary extensions.
+
+Tooltips no longer use the `class` property on the spec object (just apply the class yourself when creating the DOM element).
+
+### Bug fixes
+
+Tooltips in a dark theme that doesn't explicitly style them no longer use the light theme defaults.
+
+### New features
+
+`showTooltip` now accepts null as input value, which doesn't produce a tooltip.
+
 ## 0.18.3 (2021-03-14)
 
 ### Bug fixes
