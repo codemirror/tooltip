@@ -49,7 +49,7 @@ function expectTooltip(view: EditorView, html: string) {
     const tooltip = view.dom.querySelector(".cm-tooltip")!
     ist(tooltip)
     ist(tooltip.classList.contains("cm-tooltip"))
-    ist(tooltip.classList.contains("cm-hover-tooltip"))
+    ist(tooltip.classList.contains("cm-tooltip-hover"))
     ist(tooltip.innerHTML, html)
   })
 }
@@ -58,15 +58,15 @@ describe("hoverTooltip", () => {
   it("renders one tooltip view in container", async () => {
     let view = setupHover("test")
     mouseMove(view)
-    await expectTooltip(view, '<div class="cm-hover-tooltip-section">test</div>')
+    await expectTooltip(view, '<div class="cm-tooltip-section">test</div>')
     view.destroy()
   }),
 
   it("renders two tooltip views in container", async () => {
     let view = setupHover("test1", "test2")
     mouseMove(view)
-    await expectTooltip(view, '<div class="cm-hover-tooltip-section">test1</div>' +
-      '<div class="cm-hover-tooltip-section">test2</div>')
+    await expectTooltip(view, '<div class="cm-tooltip-section">test1</div>' +
+      '<div class="cm-tooltip-section">test2</div>')
     view.destroy()
   })
 
@@ -76,10 +76,10 @@ describe("hoverTooltip", () => {
       {text: "keep", start: 0, end: 4}
     )
     mouseMove(view, 0)
-    await expectTooltip(view, '<div class="cm-hover-tooltip-section">keep</div>')
+    await expectTooltip(view, '<div class="cm-tooltip-section">keep</div>')
     mouseMove(view, 3)
-    await expectTooltip(view, '<div class="cm-hover-tooltip-section">add</div>'
-      + '<div class="cm-hover-tooltip-section">keep</div>')
+    await expectTooltip(view, '<div class="cm-tooltip-section">add</div>'
+      + '<div class="cm-tooltip-section">keep</div>')
     view.destroy()
   })
 
@@ -89,10 +89,10 @@ describe("hoverTooltip", () => {
       {text: "keep", start: 0, end: 4}
     )
     mouseMove(view, 0)
-    await expectTooltip(view, '<div class="cm-hover-tooltip-section">remove</div>' +
-      '<div class="cm-hover-tooltip-section">keep</div>')
+    await expectTooltip(view, '<div class="cm-tooltip-section">remove</div>' +
+      '<div class="cm-tooltip-section">keep</div>')
     mouseMove(view, 3)
-    await expectTooltip(view, '<div class="cm-hover-tooltip-section">keep</div>')
+    await expectTooltip(view, '<div class="cm-tooltip-section">keep</div>')
     view.destroy()
   })
 })
