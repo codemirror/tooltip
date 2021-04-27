@@ -30,9 +30,7 @@
     "@codemirror/view": "^0.18.0"
   },
   "devDependencies": {
-    "@codemirror/buildhelper": "^0.1.5",
-    "ist": "^1.1.6",
-    "mocha": "^7.1.1"
+    "@codemirror/buildhelper": "^0.1.5"
   },
   "repository": {
     "type": "git",

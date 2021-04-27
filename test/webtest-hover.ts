@@ -1,14 +1,7 @@
-import {EditorState, Extension} from "@codemirror/state"
+import {EditorState} from "@codemirror/state"
 import {EditorView} from "@codemirror/view"
 import ist from "ist"
-import {hoverTooltip} from "../src/tooltip.js"
-
-function makeView(doc: string, extensions: Extension) {
-  const state = EditorState.create({doc, extensions})
-  const root = document.body.appendChild(document.createElement("div"))
-
-  return new EditorView({state, parent: root})
-}
+import {hoverTooltip} from "@codemirror/tooltip"
 
 async function waitForSuccess(assert: () => void) {
   for (let i = 0; i < 20; i++) {
@@ -39,65 +32,67 @@ function setupHover(...tooltips: Array<string|{text: string, start: number, end:
         dom.innerText = text
         return {dom}
       }}
-    })
+    }, {hoverTime: 10} as any)
   })
-  const view = makeView(testText, hoverTooltips)
-
-  return {
-    mousemove(pos = 0) {
-      const line = view.dom.querySelector(".cm-line")!
-      const {top, left} = view.coordsAtPos(pos)!
-      line.dispatchEvent(new MouseEvent("mousemove", {bubbles: true, clientX: left + 1, clientY: top + 1}))
-    },
-
-    expect(html: string) {
-      return waitForSuccess(() => {
-        const tooltip = view.dom.querySelector(".cm-tooltip")
-        ist(tooltip)
-        ist(tooltip!.className, "cm-hover-tooltip cm-tooltip cm-tooltip-below")
-        ist(tooltip!.innerHTML, html)
-      })
-    }
-  }
+  const root = document.body.querySelector("#workspace")!
+  return new EditorView({state: EditorState.create({doc: testText, extensions: hoverTooltips}), parent: root})
 }
 
-describe("tooltip", () => {
-  describe("hover", () => {
-    it("renders one tooltip view in container", async () => {
-      const {mousemove, expect} = setupHover("test")
-      mousemove()
-      await expect('<div class="cm-hover-tooltip-section">test</div>')
-    }),
+function mouseMove(view: EditorView, pos = 0) {
+  const line = view.dom.querySelector(".cm-line")!
+  const {top, left} = view.coordsAtPos(pos)!
+  line.dispatchEvent(new MouseEvent("mousemove", {bubbles: true, clientX: left + 1, clientY: top + 1}))
+}
 
-    it("renders two tooltip views in container", async () => {
-      const {mousemove, expect} = setupHover("test1", "test2")
-      mousemove()
-      await expect('<div class="cm-hover-tooltip-section">test1</div>' +
-        '<div class="cm-hover-tooltip-section">test2</div>')
-    })
+function expectTooltip(view: EditorView, html: string) {
+  return waitForSuccess(() => {
+    const tooltip = view.dom.querySelector(".cm-tooltip")!
+    ist(tooltip)
+    ist(tooltip.classList.contains("cm-tooltip"))
+    ist(tooltip.classList.contains("cm-hover-tooltip"))
+    ist(tooltip.innerHTML, html)
+  })
+}
 
-    it("adds tooltip view if mouse moves into the range", async () => {
-      const {mousemove, expect} = setupHover(
-        {text: "add", start: 2, end: 4},
-        {text: "keep", start: 0, end: 4}
-      )
-      mousemove(0)
-      await expect('<div class="cm-hover-tooltip-section">keep</div>')
-      mousemove(3)
-      await expect('<div class="cm-hover-tooltip-section">add</div>'
-        + '<div class="cm-hover-tooltip-section">keep</div>')
-    })
+describe("hoverTooltip", () => {
+  it("renders one tooltip view in container", async () => {
+    let view = setupHover("test")
+    mouseMove(view)
+    await expectTooltip(view, '<div class="cm-hover-tooltip-section">test</div>')
+    view.destroy()
+  }),
 
-    it("removes tooltip view if mouse moves outside of the range", async () => {
-      const {mousemove, expect} = setupHover(
-        {text: "remove", start: 0, end: 2},
-        {text: "keep", start: 0, end: 4}
-      )
-      mousemove(0)
-      await expect('<div class="cm-hover-tooltip-section">remove</div>' +
-        '<div class="cm-hover-tooltip-section">keep</div>')
-      mousemove(3)
-      await expect('<div class="cm-hover-tooltip-section">keep</div>')
-    })
+  it("renders two tooltip views in container", async () => {
+    let view = setupHover("test1", "test2")
+    mouseMove(view)
+    await expectTooltip(view, '<div class="cm-hover-tooltip-section">test1</div>' +
+      '<div class="cm-hover-tooltip-section">test2</div>')
+    view.destroy()
+  })
+
+  it("adds tooltip view if mouse moves into the range", async () => {
+    let view = setupHover(
+      {text: "add", start: 2, end: 4},
+      {text: "keep", start: 0, end: 4}
+    )
+    mouseMove(view, 0)
+    await expectTooltip(view, '<div class="cm-hover-tooltip-section">keep</div>')
+    mouseMove(view, 3)
+    await expectTooltip(view, '<div class="cm-hover-tooltip-section">add</div>'
+      + '<div class="cm-hover-tooltip-section">keep</div>')
+    view.destroy()
+  })
+
+  it("removes tooltip view if mouse moves outside of the range", async () => {
+    let view = setupHover(
+      {text: "remove", start: 0, end: 2},
+      {text: "keep", start: 0, end: 4}
+    )
+    mouseMove(view, 0)
+    await expectTooltip(view, '<div class="cm-hover-tooltip-section">remove</div>' +
+      '<div class="cm-hover-tooltip-section">keep</div>')
+    mouseMove(view, 3)
+    await expectTooltip(view, '<div class="cm-hover-tooltip-section">keep</div>')
+    view.destroy()
   })
 })
