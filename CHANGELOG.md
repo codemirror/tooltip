@@ -1,3 +1,15 @@
+## 0.19.0 (2021-08-11)
+
+### Bug fixes
+
+Move tooltips to avoid overlapping between them, when necessary.
+
+Make sure tooltips don't stay visible when the editor goes out of view.
+
+### New features
+
+Hover tooltips are now grouped together in a single DOM element when multiple such tooltips are active.
+
 ## 0.18.4 (2021-03-15)
 
 ### Breaking changes
