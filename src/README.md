@@ -9,4 +9,6 @@ See also the [tooltip example](../../examples/tooltip/).
 
 @TooltipView
 
+@tooltips
+
 @hoverTooltip
