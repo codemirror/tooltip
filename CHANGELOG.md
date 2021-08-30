@@ -1,3 +1,9 @@
+## 0.19.1 (2021-08-30)
+
+### New features
+
+The new `tooltips` function can be used to configure tooltip behavior. For now, the only option is `position`, which allows you to choose between fixed and absolute positioning.
+
 ## 0.19.0 (2021-08-11)
 
 ### Bug fixes
