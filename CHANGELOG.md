@@ -1,3 +1,9 @@
+## 0.19.2 (2021-09-01)
+
+### Bug fixes
+
+Fix accidental assignment to const.
+
 ## 0.19.1 (2021-08-30)
 
 ### New features
