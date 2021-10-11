@@ -1,3 +1,13 @@
+## 0.19.3 (2021-10-11)
+
+### Bug fixes
+
+Fix an issue where a newly created (or reconfigured) editor wouldn't show its tooltips until the first change or scroll event.
+
+### New features
+
+Tooltips now accept an `arrow` option to show a little triangle between the tooltip and its target position.
+
 ## 0.19.2 (2021-09-01)
 
 ### Bug fixes
