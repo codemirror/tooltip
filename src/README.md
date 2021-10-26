@@ -12,3 +12,7 @@ See also the [tooltip example](../../examples/tooltip/).
 @tooltips
 
 @hoverTooltip
+
+@hasHoverTooltips
+
+@closeHoverTooltips
