@@ -1,3 +1,17 @@
+## 0.19.5 (2021-11-06)
+
+### Bug fixes
+
+Fix breakage of hover tooltips inside shadow roots.
+
+### New features
+
+Adds a `hasHoverTooltips` predicate that tells you if an editor state has any open hover tooltips.
+
+Adds a `closeHoverTooltips` state effect that closes all hover tooltips.
+
+Tooltip views can now provide an `offset` property to change the tooltip position.
+
 ## 0.19.4 (2021-10-13)
 
 ## 0.19.3 (2021-10-11)
