@@ -1,3 +1,9 @@
+## 0.19.6 (2021-11-07)
+
+### Bug fixes
+
+Fix an issue where a tooltip arrow wasn't moved along by a horizontal offset.
+
 ## 0.19.5 (2021-11-06)
 
 ### Bug fixes
