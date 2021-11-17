@@ -1,3 +1,9 @@
+## 0.19.7 (2021-11-17)
+
+### Bug fixes
+
+Make sure window resizing doesn't make tooltips stick out of the visible viewport.
+
 ## 0.19.6 (2021-11-07)
 
 ### Bug fixes
