@@ -1,6 +1,6 @@
 {
   "name": "@codemirror/tooltip",
-  "version": "0.19.7",
+  "version": "0.19.8",
   "description": "Tooltip support for the CodeMirror code editor",
   "scripts": {
     "test": "cm-runtests",

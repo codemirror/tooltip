@@ -1,3 +1,9 @@
+## 0.19.8 (2021-11-19)
+
+### Bug fixes
+
+Make automatic repositioning when tooltips go out of view more robust with an intersection observer.
+
 ## 0.19.7 (2021-11-17)
 
 ### Bug fixes
