@@ -1,3 +1,9 @@
+## 0.19.9 (2021-11-22)
+
+### New features
+
+Add an option `tooltipSpace` to the `tooltips` function that allows configuring of the available space to show tooltips in.
+
 ## 0.19.8 (2021-11-19)
 
 ### Bug fixes
