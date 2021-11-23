@@ -16,3 +16,5 @@ See also the [tooltip example](../../examples/tooltip/).
 @hasHoverTooltips
 
 @closeHoverTooltips
+
+@repositionTooltips
