@@ -1,3 +1,13 @@
+## 0.19.10 (2021-11-23)
+
+### Bug fixes
+
+Make positioning of tooltips that don't fit the available space more well-defined.
+
+### New features
+
+The new `repositionTooltips` function can be used to tell an editor to recompute its tooltip positions.
+
 ## 0.19.9 (2021-11-22)
 
 ### New features
