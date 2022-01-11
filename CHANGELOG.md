@@ -1,3 +1,9 @@
+## 0.19.11 (2022-01-11)
+
+### Bug fixes
+
+Make sure tooltips are repositioned on window resize.
+
 ## 0.19.10 (2021-11-23)
 
 ### Bug fixes
