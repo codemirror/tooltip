@@ -11,6 +11,8 @@ See also the [tooltip example](../../examples/tooltip/).
 
 @tooltips
 
+@getTooltip
+
 @hoverTooltip
 
 @hasHoverTooltips
