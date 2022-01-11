@@ -1,3 +1,9 @@
+## 0.19.12 (2022-01-11)
+
+### New features
+
+The new `getTooltip` function can retrieve the active tooltip view from a tooltip object.
+
 ## 0.19.11 (2022-01-11)
 
 ### Bug fixes
