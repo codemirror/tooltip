@@ -1,3 +1,9 @@
+## 0.19.13 (2022-01-19)
+
+### New features
+
+Tooltips now have an `overlap` option that can be used to disable the moving of overlapping tooltips.
+
 ## 0.19.12 (2022-01-11)
 
 ### New features
