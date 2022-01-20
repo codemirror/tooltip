@@ -234,7 +234,7 @@ const tooltipPlugin = ViewPlugin.fromClass(class {
       // Hide tooltips that are outside of the editor.
       if (!pos || pos.bottom <= Math.max(editor.top, space.top) ||
           pos.top >= Math.min(editor.bottom, space.bottom) ||
-          pos.right <= Math.max(editor.left, space.left) ||
+          pos.right < Math.max(editor.left, space.left) ||
           pos.left >= Math.min(editor.right, space.right)) {
         dom.style.top = Outside
         continue
