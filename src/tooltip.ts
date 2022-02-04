@@ -48,7 +48,7 @@ class TooltipViewManager {
       if (!tip) continue
       for (let i = 0; i < this.tooltips.length; i++) {
         let other = this.tooltips[i]
-        if (other && other.create == tip.create) known = i
+        if (other && (other.create == tip.create || other.id == tip.id)) known = i
       }
       if (known < 0) {
         tooltipViews[i] = this.createTooltipView(tip)
@@ -355,6 +355,8 @@ const baseTheme = EditorView.baseTheme({
 /// the [`showTooltip`](#tooltip.showTooltip) facet, control the
 /// individual tooltips on the editor.
 export interface Tooltip {
+  /// A unique identifier for the tooltip.
+  id: string;
   /// The document position at which to show the tooltip.
   pos: number
   /// The end of the range annotated by this tooltip, if different
