@@ -1,3 +1,9 @@
+## 0.19.14 (2022-02-14)
+
+### Bug fixes
+
+Fix an issue where in editors without padding, tooltips for positions right on the start and end of the visible content wouldn't show up.
+
 ## 0.19.13 (2022-01-19)
 
 ### New features
