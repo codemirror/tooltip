@@ -1,3 +1,13 @@
+## 0.19.15 (2022-02-18)
+
+### Bug fixes
+
+The default hover time has been reduced from 600 to 300 milliseconds.
+
+### New features
+
+`hoverTooltip` now takes a `hoverTime` option, which can be used to control how long the user must hover to see the tooltip.
+
 ## 0.19.14 (2022-02-14)
 
 ### Bug fixes
