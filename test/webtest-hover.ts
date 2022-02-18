@@ -32,7 +32,7 @@ function setupHover(...tooltips: Array<string|{text: string, start: number, end:
         dom.innerText = text
         return {dom}
       }}
-    }, {hoverTime: 10} as any)
+    }, {hoverTime: 10})
   })
   const root = document.body.querySelector("#workspace")!
   return new EditorView({state: EditorState.create({doc: testText, extensions: hoverTooltips}), parent: root})
