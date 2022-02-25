@@ -1,3 +1,9 @@
+## 0.19.16 (2022-02-25)
+
+### New features
+
+Tooltip views may now have a `getPos` property, which can be used to override the way the tooltip's position is computed.
+
 ## 0.19.15 (2022-02-18)
 
 ### Bug fixes
